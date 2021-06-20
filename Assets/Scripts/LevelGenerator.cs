@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
 {
+    // Скрипт отвечает за создание доски с картами
     [SerializeField] Sprite[] NumberPack;
     [SerializeField] Sprite[] WordPack;
 
