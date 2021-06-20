@@ -4,6 +4,7 @@ using DG.Tweening;
 
 public class PlayerTask : MonoBehaviour
 {
+    // Скрипт отвечает за выполнение заданий и отчёт другим по этому поводу
     [SerializeField] LevelGenerator levelGenerator;
     [SerializeField] Animate animate;
     [SerializeField] Text text;
