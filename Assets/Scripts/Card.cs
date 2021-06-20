@@ -3,6 +3,7 @@ using DG.Tweening;
 
 public class Card : MonoBehaviour
 {
+    // Скрипт отвечает за нажатия каждой карты и её анимации
     [SerializeField] SpriteRenderer Sprite;
     LevelGenerator levelGenerator;
     private int Answer;
