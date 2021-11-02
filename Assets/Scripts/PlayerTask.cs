@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class PlayerTask : MonoBehaviour
+public sealed class PlayerTask : MonoBehaviour
 {
     [SerializeField] LevelGenerator levelGenerator;
     [SerializeField] Animate animate;

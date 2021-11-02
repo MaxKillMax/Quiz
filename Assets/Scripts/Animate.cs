@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class Animate : MonoBehaviour
+public sealed class Animate : MonoBehaviour
 {
     [SerializeField] GameObject Restart;
     [SerializeField] LevelGenerator levelGenerator;

@@ -1,14 +1,25 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
-public class Card : MonoBehaviour
+public sealed class Card : MonoBehaviour
 {
     [SerializeField] SpriteRenderer Sprite;
     LevelGenerator levelGenerator;
+
     private int Answer;
+
+    private bool firstActivated = false;
+    private Vector3 startPosition;
+
 
     private void OnMouseDown()
     {
+        if (firstActivated == false)
+        {
+            firstActivated = true;
+            startPosition = transform.position;
+        }
+
         if (levelGenerator == null)
         {
             levelGenerator = GetComponentInParent<LevelGenerator>();
@@ -34,15 +45,13 @@ public class Card : MonoBehaviour
 
     public void Bounce(GameObject gameObject)
     {
-        Vector3 vector = gameObject.transform.position;
         gameObject.transform.DOShakePosition(0.5f, new Vector3(1, 0.2f, 0), 10, 90);
-        gameObject.transform.position = vector;
+        gameObject.transform.position = startPosition;
     }
 
     public void easeinBounce(GameObject gameObject)
     {
-        Vector3 vector = gameObject.transform.position;
         gameObject.transform.DOShakeScale(1, 0.3f, 10, 90);
-        gameObject.transform.position = vector;
+        gameObject.transform.position = startPosition;
     }
 }

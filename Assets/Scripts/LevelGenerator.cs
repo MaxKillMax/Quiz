@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
-public class LevelGenerator : MonoBehaviour
+public sealed class LevelGenerator : MonoBehaviour
 {
     [SerializeField] Sprite[] NumberPack;
     [SerializeField] Sprite[] WordPack;
@@ -23,7 +24,7 @@ public class LevelGenerator : MonoBehaviour
     // Список выбранных до этого карт
     private List<int> PickedCards = new List<int>();
 
-    void Start()
+    private void Start()
     {
         Generate();
     }
@@ -44,7 +45,6 @@ public class LevelGenerator : MonoBehaviour
 
         // Выбор пака
         TypePack = Random.Range(0, 2);
-        TypePack = 0;
 
         // Проверка на количество созданных карт
         GameLevel += 3;
@@ -110,7 +110,7 @@ public class LevelGenerator : MonoBehaviour
 
             // Установка местоположения в иерархии и на сцене. Также учёт в следующих картах.
             CardList[CardList.Count - 1].transform.parent = transform;
-            CardList[CardList.Count - 1].transform.position = CardVectors[i];
+            CardList[CardList.Count - 1].transform.DOMove(CardVectors[i], 0f);
             CardList[CardList.Count - 1].transform.name = TypePick.ToString("N0");
             PickedCards.Add(TypePick);
         }
