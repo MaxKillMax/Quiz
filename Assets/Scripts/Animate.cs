@@ -4,6 +4,7 @@ using DG.Tweening;
 
 public sealed class Animate : MonoBehaviour
 {
+    // Скрипт отвечает за анимацию окна Restart
     [SerializeField] GameObject Restart;
     [SerializeField] LevelGenerator levelGenerator;
     [SerializeField] Image FadeObject;
